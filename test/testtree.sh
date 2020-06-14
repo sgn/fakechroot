@@ -102,6 +102,7 @@ for p in \
     'ld-linux.so.*' \
     'ld-linux-x86-64.so.*' \
     'ld-uClibc.so.*' \
+    'ld-musl-*.so.*' \
     'ld.so.*' \
     'libacl.so.*' \
     'libattr.so.*' \
@@ -111,6 +112,7 @@ for p in \
     'libdl.so.*' \
     'libedit.so.*' \
     'libelf.so.*' \
+    'libfts.so.*' \
     'libjemalloc.so.*' \
     'libgcc_s.so.*' \
     'libm.so.*' \
