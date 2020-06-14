@@ -18,6 +18,10 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
    02111-1307 USA.  */
 
+#include <config.h>
+#define _GNU_SOURCE
+#include <sys/stat.h>
+
 #define __FTW64_C
 #define FTW_NAME ftw64
 #define NFTW_NAME nftw64
@@ -30,5 +34,15 @@
 #define FXSTATAT __fxstatat64
 #define FTW_FUNC_T __ftw64_func_t
 #define NFTW_FUNC_T __nftw64_func_t
+
+#ifdef HAVE___FXSTATAT64
+int __fxstatat64(int ver, int fd, const char *filename, struct stat64 *buf, int flags);
+#endif
+#ifdef HAVE___LXSTAT64
+int __lxstat64(int ver, const char *filename, struct stat64 *buf);
+#endif
+#ifdef HAVE___XSTAT64
+int __xstat64(int ver, const char *filename, struct stat64 *buf);
+#endif
 
 #include "ftw.c"

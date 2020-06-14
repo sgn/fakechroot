@@ -312,6 +312,7 @@ static const int ftw_arr[] =
 /* Forward declarations of local functions.  */
 static int ftw_dir (struct ftw_data *data, struct STAT *st,
                     struct dir_data *old_dir) internal_function;
+void *rawmemchr(const void *s, int c);
 
 
 static int
