@@ -198,6 +198,41 @@ int rpl_lstat (const char *, struct stat *);
 # define NFTW_FUNC_T __nftw_func_t
 #endif
 
+#ifndef HAVE_FTW_ACTIONRETVAL
+# define FTW_ACTIONRETVAL 16
+#endif
+#ifndef HAVE_FTW_CONTINUE
+# define FTW_CONTINUE 0
+#endif
+#ifndef HAVE_FTW_STOP
+# define FTW_STOP 1
+#endif
+#ifndef HAVE_FTW_SKIP_SUBTREE
+# define FTW_SKIP_SUBTREE 2
+#endif
+#ifndef HAVE_FTW_SKIP_SIBLINGS
+# define FTW_SKIP_SIBLINGS 3
+#endif
+
+#ifndef HAVE___FTW_FUNC_T
+typedef int (*__ftw_func_t) (__const char *__filename,
+			     __const struct stat *__status, int __flag);
+#endif
+#ifndef HAVE___FTW64_FUNC_T
+typedef int (*__ftw64_func_t) (__const char *__filename,
+			       __const struct stat64 *__status, int __flag);
+#endif
+#ifndef HAVE___NFTW_FUNC_T
+typedef int (*__nftw_func_t) (__const char *__filename,
+			      __const struct stat *__status, int __flag,
+			      struct FTW *__info);
+#endif
+#ifndef HAVE___FTW64_FUNC_T
+typedef int (*__nftw64_func_t) (__const char *__filename,
+				__const struct stat64 *__status,
+				int __flag, struct FTW *__info);
+#endif
+
 #define macro_stringify(name) macro_stringify2(name)
 #define macro_stringify2(name) #name
 #define FTW_NAME_STRING macro_stringify(FTW_NAME)

@@ -129,6 +129,7 @@ AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
 AC_TYPE_UINT32_T
 AC_CHECK_TYPES([ptrdiff_t])
+AC_CHECK_TYPES([__ftw_func_t, __ftw64_func_t, __nftw_func_t, __nftw64_func_t])
 
 # Checks for additional typedefs.
 AC_CHECK_MEMBERS([struct sockaddr_un.sun_len],,, ACX_INCLUDES_HEADERS([sys/un.h]))
@@ -388,6 +389,11 @@ ACX_CHECK_FUNC_ARGTYPES([utimes],
 
 AC_CHECK_DECLS([_STAT_VER])
 AC_CHECK_DECLS([__environ])
+AC_CHECK_DECLS([FTW_ACTIONRETVAL,
+		FTW_CONTINUE,
+		FTW_STOP,
+		FTW_SKIP_SUBTREE,
+		FTW_SKIP_SIBLINGS])
 
 # List of Makefiles
 AC_CONFIG_FILES(m4_normalize([
