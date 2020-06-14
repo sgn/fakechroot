@@ -386,6 +386,8 @@ ACX_CHECK_FUNC_ARGTYPES([utimes],
     [[const char *_]],
     [[const struct timeval _@<:@2@:>@], [struct timeval _@<:@2@:>@]])
 
+AC_CHECK_DECLS([_STAT_VER])
+
 # List of Makefiles
 AC_CONFIG_FILES(m4_normalize([
     config.sh

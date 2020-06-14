@@ -51,6 +51,10 @@
 # define SECTION_DATA_FAKECHROOT
 #endif
 
+#if !HAVE_DECL__STAT_VER
+#define _STAT_VER 0
+#endif
+
 #if defined(PATH_MAX)
 # define FAKECHROOT_PATH_MAX PATH_MAX
 #elif defined(_POSIX_PATH_MAX)
