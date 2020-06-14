@@ -54,6 +54,11 @@
    environment.  */
 static char **last_environ;
 
+#if !HAVE_DECL___ENVIRON
+extern char **environ;
+#define __environ environ
+#endif
+
 
 /* This function is used by `setenv' and `putenv'.  The difference between
    the two functions is that for the former must create a new string which
