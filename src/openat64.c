@@ -29,6 +29,10 @@
 #include <fcntl.h>
 #include "libfakechroot.h"
 
+#ifdef openat64
+#undef openat64
+#endif
+
 
 wrapper_alias(openat64, int, (int dirfd, const char * pathname, int flags, ...))
 {

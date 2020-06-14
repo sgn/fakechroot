@@ -28,6 +28,10 @@
 #include <stdlib.h>
 
 #include "libfakechroot.h"
+
+#ifdef mkstemps64
+#undef mkstemps64
+#endif
 #include "strlcpy.h"
 
 

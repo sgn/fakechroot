@@ -72,6 +72,11 @@ char *alloca ();
 #include <string.h>
 #include <unistd.h>
 
+#ifndef __GLIBC__
+#undef ftw64
+#undef nftw64
+#endif
+
 /* By default we have none.  Map the name to the normal functions.  */
 #define open_not_cancel(name, flags, mode) \
   __libc_open (name, flags, mode)

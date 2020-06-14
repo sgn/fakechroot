@@ -26,6 +26,10 @@
 #include <stdio.h>
 #include "libfakechroot.h"
 
+#ifdef fopen64
+#undef fopen64
+#endif
+
 
 wrapper(fopen64, FILE *, (const char * path, const char * mode))
 {

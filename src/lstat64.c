@@ -32,6 +32,10 @@
 
 #include "libfakechroot.h"
 
+#ifdef lstat64
+#undef lstat64
+#endif
+
 
 wrapper(lstat64, int, (const char * file_name, struct stat64 * buf))
 {

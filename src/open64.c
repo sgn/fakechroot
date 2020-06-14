@@ -28,6 +28,10 @@
 #include <fcntl.h>
 #include "libfakechroot.h"
 
+#ifdef open64
+#undef open64
+#endif
+
 
 wrapper_alias(open64, int, (const char * pathname, int flags, ...))
 {

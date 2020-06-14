@@ -31,8 +31,14 @@
 
 #include "libfakechroot.h"
 
+typedef struct stat64 fakechroot_stat64_t;
 
-wrapper(stat64, int, (const char * file_name, struct stat64 * buf))
+#ifdef stat64
+#undef stat64
+#endif
+
+
+wrapper(stat64, int, (const char * file_name, fakechroot_stat64_t * buf))
 {
     char fakechroot_abspath[FAKECHROOT_PATH_MAX];
     char fakechroot_buf[FAKECHROOT_PATH_MAX];

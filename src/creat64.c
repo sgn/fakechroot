@@ -27,6 +27,10 @@
 #include <sys/stat.h>
 #include "libfakechroot.h"
 
+#ifdef creat64
+#undef creat64
+#endif
+
 
 wrapper(creat64, int, (const char * pathname, mode_t mode))
 {

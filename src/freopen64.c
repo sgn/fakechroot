@@ -26,6 +26,10 @@
 #include <stdio.h>
 #include "libfakechroot.h"
 
+#ifdef freopen64
+#undef freopen64
+#endif
+
 
 wrapper(freopen64, FILE *, (const char *path, const char *mode, FILE *stream))
 {

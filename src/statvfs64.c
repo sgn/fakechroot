@@ -26,8 +26,14 @@
 #include <sys/statvfs.h>
 #include "libfakechroot.h"
 
+typedef struct statvfs64 fakechroot_statvfs64_t;
 
-wrapper(statvfs64, int, (const char * path, struct statvfs64 * buf))
+#ifdef statvfs64
+#undef statvfs64
+#endif
+
+
+wrapper(statvfs64, int, (const char * path, fakechroot_statvfs64_t * buf))
 {
     char fakechroot_abspath[FAKECHROOT_PATH_MAX];
     char fakechroot_buf[FAKECHROOT_PATH_MAX];

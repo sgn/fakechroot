@@ -26,6 +26,10 @@
 #include <sys/types.h>
 #include "libfakechroot.h"
 
+#ifdef truncate64
+#undef truncate64
+#endif
+
 
 wrapper(truncate64, int, (const char * path, off64_t length))
 {

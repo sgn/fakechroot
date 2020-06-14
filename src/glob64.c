@@ -26,6 +26,10 @@
 #include <glob.h>
 #include "libfakechroot.h"
 
+#ifdef glob64
+#undef glob64
+#endif
+
 
 wrapper(glob64, int, (const char * pattern, int flags, int (* errfunc) (const char *, int), glob64_t * pglob))
 {
