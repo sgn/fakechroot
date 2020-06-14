@@ -36,8 +36,7 @@
 #include "libfakechroot.h"
 #include "readlink.h"
 
-#ifdef HAVE___LXSTAT64
-# define _LARGEFILE64_SOURCE
+#if defined(HAVE___LXSTAT64) && !defined(__XSTAT_CALL_STAT)
 # include "__lxstat64.h"
 # define STAT_T stat64
 # define LSTAT_REL(rpath, st) __lxstat64_rel(_STAT_VER, rpath, st)

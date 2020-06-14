@@ -20,7 +20,7 @@
 
 #include <config.h>
 
-#if defined(HAVE_STAT64) && !defined(HAVE___XSTAT64)
+#if defined(HAVE_STAT64) && (!defined(HAVE___XSTAT64) || defined(__XSTAT_CALL_STAT))
 
 #define _BSD_SOURCE
 #define _LARGEFILE64_SOURCE

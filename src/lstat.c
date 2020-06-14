@@ -20,7 +20,7 @@
 
 #include <config.h>
 
-#ifndef HAVE___LXSTAT
+#if !defined(HAVE___LXSTAT) || defined(__XSTAT_CALL_STAT)
 
 #include <sys/stat.h>
 #include <unistd.h>

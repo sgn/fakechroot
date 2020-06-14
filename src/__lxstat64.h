@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#ifdef HAVE___LXSTAT64
+#if defined(HAVE___LXSTAT64) && !defined(__XSTAT_CALL_STAT)
 
 #ifndef _LARGEFILE64_SOURCE
 # define _LARGEFILE64_SOURCE

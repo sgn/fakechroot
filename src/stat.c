@@ -20,7 +20,7 @@
 
 #include <config.h>
 
-#ifndef HAVE___XSTAT
+#if !defined(HAVE___XSTAT) || defined(__XSTAT_CALL_STAT)
 
 #define _BSD_SOURCE
 #define _DEFAULT_SOURCE

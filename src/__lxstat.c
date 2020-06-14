@@ -20,7 +20,7 @@
 
 #include <config.h>
 
-#ifdef HAVE___LXSTAT
+#if defined(HAVE___LXSTAT) && !defined(__XSTAT_CALL_STAT)
 
 #define _ATFILE_SOURCE
 #define _BSD_SOURCE
